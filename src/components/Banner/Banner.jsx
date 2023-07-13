@@ -1,0 +1,46 @@
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+const Banner = () => {
+    const banners = [
+        {
+            _id : "0123",
+            image:"https://tfe-bd.sgp1.cdn.digitaloceanspaces.com/uploads/1530257544.jpg",
+            title:"",
+            desc:""
+        },
+        {
+            _id : "0122",
+            image:"https://www.ruet.ac.bd/public/storage/sliders/5th-convocationqn3znqIQbc.jpg",
+            title:"",
+            desc:""
+        },
+        {
+            _id : "0123",
+            image:"https://eng.campuslive24.com/uploads/shares/2021/ruet-live-2022-09-26-20-59-54.jpg",
+            title:"",
+            desc:""
+        },
+    ]
+    const settings = {
+        dots: true,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        speed: 500,
+        autoplaySpeed: 5000,
+        cssEase: "linear"
+      };
+    return (
+        <div className="">
+            <Slider {...settings}>
+                {banners.map(banner=><div className=" h-[70vh]" key={banner._id}>
+                    <img className="w-full h-full" src={banner.image} alt="" />
+                </div>)}
+            </Slider>
+        </div>
+    )
+}
+
+export default Banner

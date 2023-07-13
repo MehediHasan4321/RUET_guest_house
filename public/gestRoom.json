@@ -1,0 +1,93 @@
+[
+    {
+        "_id":"001",
+        "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpQp-rnGeUBKbSaVWvZmjHEXi7HTswJk5M5BVpfp164KQn_2ez1JbRxddMWGZuWmCyBpE&usqp=CAU",
+        "host":{
+            "hostEmail":"126mehedi@gmail.com",
+            "hostName":"Mehedi Hasan",
+            "hostImage":"https://cdn.wallpapersafari.com/13/16/jLn1RT.jpg"
+        },
+        "price":150,
+        "gest":10,
+        "bathroom":1,
+        "availableSet":10,
+        "title":"RUET Gest House",
+        "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga numquam corrupti debitis. Vel, necessitatibus saepe? Quidem eius ad officiis eum repellat, quis assumenda dolorem nostrum rem, fugit reprehenderit amet expedita harum esse aperiam odit vero rerum illo! Et voluptates numquam sequi? Omnis labore exercitationem facilis. Deleniti nemo non animi illum praesentium, veniam temporibus mollitia fugit doloremque iusto quod deserunt, inventore, ea sed voluptates ab! Quam possimus vero nostrum nulla ad fugiat, accusamus sit sapiente soluta laborum labore aspernatur quos sed aut molestiae quas quaerat, explicabo minima eaque reprehenderit numquam adipisci cumque iste odio. Quidem id dolorum rem neque dolor quis."
+    },
+    {
+        "_id":"002",
+        "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpQp-rnGeUBKbSaVWvZmjHEXi7HTswJk5M5BVpfp164KQn_2ez1JbRxddMWGZuWmCyBpE&usqp=CAU",
+        "host":{
+            "hostEmail":"126mehedi@gmail.com",
+            "hostName":"Mehedi Hasan",
+            "hostImage":"https://cdn.wallpapersafari.com/13/16/jLn1RT.jpg"
+        },
+        "gest":10,
+        "price":150,
+        "bathroom":1,
+        "availableSet":10,
+        "title":"RUET Gest House",
+        "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga numquam corrupti debitis. Vel, necessitatibus saepe? Quidem eius ad officiis eum repellat, quis assumenda dolorem nostrum rem, fugit reprehenderit amet expedita harum esse aperiam odit vero rerum illo! Et voluptates numquam sequi? Omnis labore exercitationem facilis. Deleniti nemo non animi illum praesentium, veniam temporibus mollitia fugit doloremque iusto quod deserunt, inventore, ea sed voluptates ab! Quam possimus vero nostrum nulla ad fugiat, accusamus sit sapiente soluta laborum labore aspernatur quos sed aut molestiae quas quaerat, explicabo minima eaque reprehenderit numquam adipisci cumque iste odio. Quidem id dolorum rem neque dolor quis."
+    },
+    {
+        "_id":"003",
+        "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpQp-rnGeUBKbSaVWvZmjHEXi7HTswJk5M5BVpfp164KQn_2ez1JbRxddMWGZuWmCyBpE&usqp=CAU",
+        "host":{
+            "hostEmail":"126mehedi@gmail.com",
+            "hostName":"Mehedi Hasan",
+            "hostImage":"https://cdn.wallpapersafari.com/13/16/jLn1RT.jpg"
+        },
+        "gest":10,
+        "bathroom":1,
+        "price":150,
+        "availableSet":10,
+        "title":"RUET Gest House",
+        "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga numquam corrupti debitis. Vel, necessitatibus saepe? Quidem eius ad officiis eum repellat, quis assumenda dolorem nostrum rem, fugit reprehenderit amet expedita harum esse aperiam odit vero rerum illo! Et voluptates numquam sequi? Omnis labore exercitationem facilis. Deleniti nemo non animi illum praesentium, veniam temporibus mollitia fugit doloremque iusto quod deserunt, inventore, ea sed voluptates ab! Quam possimus vero nostrum nulla ad fugiat, accusamus sit sapiente soluta laborum labore aspernatur quos sed aut molestiae quas quaerat, explicabo minima eaque reprehenderit numquam adipisci cumque iste odio. Quidem id dolorum rem neque dolor quis."
+    },
+    {
+        "_id":"004",
+        "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpQp-rnGeUBKbSaVWvZmjHEXi7HTswJk5M5BVpfp164KQn_2ez1JbRxddMWGZuWmCyBpE&usqp=CAU",
+        "host":{
+            "hostEmail":"126mehedi@gmail.com",
+            "hostName":"Mehedi Hasan",
+            "hostImage":"https://cdn.wallpapersafari.com/13/16/jLn1RT.jpg"
+        },
+        "gest":10,
+        "bathroom":1,
+        "availableSet":10,
+        "price":150,
+        "title":"RUET Gest House",
+        "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga numquam corrupti debitis. Vel, necessitatibus saepe? Quidem eius ad officiis eum repellat, quis assumenda dolorem nostrum rem, fugit reprehenderit amet expedita harum esse aperiam odit vero rerum illo! Et voluptates numquam sequi? Omnis labore exercitationem facilis. Deleniti nemo non animi illum praesentium, veniam temporibus mollitia fugit doloremque iusto quod deserunt, inventore, ea sed voluptates ab! Quam possimus vero nostrum nulla ad fugiat, accusamus sit sapiente soluta laborum labore aspernatur quos sed aut molestiae quas quaerat, explicabo minima eaque reprehenderit numquam adipisci cumque iste odio. Quidem id dolorum rem neque dolor quis."
+    },
+    {
+        "_id":"005",
+        "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpQp-rnGeUBKbSaVWvZmjHEXi7HTswJk5M5BVpfp164KQn_2ez1JbRxddMWGZuWmCyBpE&usqp=CAU",
+        "host":{
+            "hostEmail":"126mehedi@gmail.com",
+            "hostName":"Mehedi Hasan",
+            "hostImage":"https://cdn.wallpapersafari.com/13/16/jLn1RT.jpg"
+        },
+        "gest":10,
+        "bathroom":1,
+        "availableSet":10,
+        "price":150,
+    
+        "title":"RUET Gest House",
+        "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga numquam corrupti debitis. Vel, necessitatibus saepe? Quidem eius ad officiis eum repellat, quis assumenda dolorem nostrum rem, fugit reprehenderit amet expedita harum esse aperiam odit vero rerum illo! Et voluptates numquam sequi? Omnis labore exercitationem facilis. Deleniti nemo non animi illum praesentium, veniam temporibus mollitia fugit doloremque iusto quod deserunt, inventore, ea sed voluptates ab! Quam possimus vero nostrum nulla ad fugiat, accusamus sit sapiente soluta laborum labore aspernatur quos sed aut molestiae quas quaerat, explicabo minima eaque reprehenderit numquam adipisci cumque iste odio. Quidem id dolorum rem neque dolor quis."
+    },
+    {
+        "_id":"006",
+        "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpQp-rnGeUBKbSaVWvZmjHEXi7HTswJk5M5BVpfp164KQn_2ez1JbRxddMWGZuWmCyBpE&usqp=CAU",
+        "host":{
+            "hostEmail":"126mehedi@gmail.com",
+            "hostName":"Mehedi Hasan",
+            "hostImage":"https://cdn.wallpapersafari.com/13/16/jLn1RT.jpg"
+        },
+        "price":150,
+        "gest":10,
+        "bathroom":1,
+        "availableSet":10,
+        "title":"RUET Gest House",
+        "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga numquam corrupti debitis. Vel, necessitatibus saepe? Quidem eius ad officiis eum repellat, quis assumenda dolorem nostrum rem, fugit reprehenderit amet expedita harum esse aperiam odit vero rerum illo! Et voluptates numquam sequi? Omnis labore exercitationem facilis. Deleniti nemo non animi illum praesentium, veniam temporibus mollitia fugit doloremque iusto quod deserunt, inventore, ea sed voluptates ab! Quam possimus vero nostrum nulla ad fugiat, accusamus sit sapiente soluta laborum labore aspernatur quos sed aut molestiae quas quaerat, explicabo minima eaque reprehenderit numquam adipisci cumque iste odio. Quidem id dolorum rem neque dolor quis."
+    }
+]
