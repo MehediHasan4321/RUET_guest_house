@@ -2,10 +2,11 @@ import React, { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../authProvider/AuthProvider'
 import { getUser } from '../../allApi/getUsers'
 import { saveBooking } from '../../allApi/saveBookingToDB'
+import Swal from 'sweetalert2'
 
 const BookingForm = ({ room }) => {
     const [quantity, setQuandtity] = useState(1)
-    const {user} = useContext(AuthContext)
+    const {user,userRole} = useContext(AuthContext)
     const [userInfo,setUserInfo] = useState({})
 
     useEffect(()=>{
@@ -13,7 +14,6 @@ const BookingForm = ({ room }) => {
             setUserInfo(res)
         })
     },[user])
-
 
     const handelBooking = event => {
         event.preventDefault()
@@ -28,11 +28,17 @@ const BookingForm = ({ room }) => {
         const totalPrice = parseFloat(form.totalPrice.value);
         const hostEmail = room?.hostEmail;
         const status= 'painding'
-        const booking = {name,userEmail,department,emplyee,from,to,gestQuantity,totalPrice,hostEmail,status}
+        const booking = {name,userEmail,department,emplyee,from,to,gestQuantity,totalPrice,hostEmail,status,designation:userInfo?.designation,isPayment:'false'}
         saveBooking(booking)
         .then((res)=>{
             if(res.insertedId){
-                form.reset()
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Your booking has been saved, Plz Pay for confirmation',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
             }
         })
         .catch(err=>{
@@ -41,7 +47,7 @@ const BookingForm = ({ room }) => {
         .finally()
         
     }
- 
+
     return (
         <form onSubmit={handelBooking} className='w-full space-y-3'>
             <div className='flex gap-3'>
@@ -62,7 +68,7 @@ const BookingForm = ({ room }) => {
                 <input type="text" name="totalPrice" id="totolPrice" value={room?.price * quantity} className='w-1/2 py-2 bg-red-100 pl-2 outline-none' />
             </div>
             <div>
-                <input className='w-full py-2 bg-red-200 cursor-pointer font-semibold hover:bg-purple-200' type="submit" value="Reserve The Room" />
+                <input className='w-full py-2 bg-red-200 cursor-pointer font-semibold hover:bg-purple-200 disabled:bg-neutral-600' type="submit" disabled={userRole === 'admin'} value="Reserve The Room" />
             </div>
         </form>
     )

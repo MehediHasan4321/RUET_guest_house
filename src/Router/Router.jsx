@@ -10,6 +10,7 @@ import MyBooking from '../components/MyBooking/MyBooking'
 import AddRoom from '../Dashboard/AddRoom/AddRoom'
 import ManageUser from '../Dashboard/ManageUser/ManageUser'
 import ManageBooking from '../Dashboard/ManageBooking/ManageBooking'
+import ManageRooms from '../Dashboard/ManageRooms/ManageRooms'
 const  routers= createBrowserRouter([
     {
         path:'/',
@@ -56,6 +57,11 @@ const  routers= createBrowserRouter([
                 path:'/dashboard/manageBooking',
                 element:<ManageBooking/>,
                 loader:()=>fetch('http://localhost:5000/allusersBooking')
+            },
+            {
+                path:'/dashboard/manageRooms',
+                element:<ManageRooms/>,
+                loader:()=>fetch('http://localhost:5000/allRooms')
             }
         ]
         }
