@@ -4,7 +4,7 @@ import RoomCard from '../RoomCard/RoomCard'
 const GestRooms = () => {
     const [rooms,setRooms] = useState([])
     useEffect(()=>{
-        fetch('gestRoom.json').then(res=>res.json()).then(data=>setRooms(data))
+        fetch('http://localhost:5000/allRooms').then(res=>res.json()).then(data=>setRooms(data))
     },[])
 
     return (

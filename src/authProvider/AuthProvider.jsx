@@ -1,11 +1,14 @@
 import {createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut} from 'firebase/auth'
+
 import app from '../firebase/firebase_config'
 import {  createContext, useEffect, useState } from 'react'
+import { getUserRole } from '../allApi/getUserRoleByEmail'
 export const AuthContext = createContext(null)
 const AuthProvider = ({children}) => {
     const auth = getAuth(app)
     const [user,setUser] = useState(null)
     const [loading,setLoading] = useState(false)
+    const [userRole,setUserRole] = useState('')
     const createUserWithEmailPass = (email,password)=>{
         setLoading(true)
         return createUserWithEmailAndPassword(auth,email,password)
@@ -25,13 +28,20 @@ const AuthProvider = ({children}) => {
         })
         return ()=>unsubscribe()
     },[])
+
+    useEffect(()=>{
+        getUserRole(user?.email).then(data=>setUserRole(data.role))
+    },[user])
+  
     const userInfo = {
         user,
         createUserWithEmailPass,
         loginWithEmailPass,
         loading,
-        logOut
+        logOut,
+        userRole
     }
+
     return (
         <AuthContext.Provider value={userInfo}>
             {children}

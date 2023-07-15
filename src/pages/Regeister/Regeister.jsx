@@ -1,12 +1,16 @@
 import { BsFillPersonFill, BsFillTelephoneFill, BsFillLockFill } from 'react-icons/bs'
+import { getAuth, updateProfile } from "firebase/auth";
 import { AiFillMail } from 'react-icons/ai'
-import { Link } from 'react-router-dom'
-import { useContext, useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { useContext, useState } from 'react'
 import { AuthContext } from '../../authProvider/AuthProvider'
+import app from '../../firebase/firebase_config';
+import { saveUserToDB } from '../../allApi/saveUsetToDB';
 const Regeister = () => {
     const randomNumber = Math.round(Math.random()*10000)
-    const [varifiNum,setVerifiNum] = useState('')
     const {createUserWithEmailPass} = useContext(AuthContext)
+    const navigate = useNavigate()
+    const auth = getAuth(app)
     const handleRegeister = e=>{
         e.preventDefault()
         const form = e.target
@@ -20,17 +24,23 @@ const Regeister = () => {
         const confirmPassword = form.confirmPassword.value
         const email = form.email.value;
         const varificationNumber = form.varificationNumber.value;
-        const regeisterInfo = {banglaName,englishName,emploee,department,designation,phoneNumber,email,password,confirmPassword,varificationNumber}
+        const regeisterInfo = {englishName,emploee,department,designation,phoneNumber,email}
         createUserWithEmailPass(email,password).then(()=>{
-            alert('regeistration successfull')
-            form.reset()
+            updateProfile(auth.currentUser,{displayName:englishName}).then(()=>{
+                saveUserToDB(regeisterInfo).then((res)=>{
+                    if(res.upsertedId || res.modifiedCount>0){
+                        navigate('/')
+                    }
+                })
+                
+            }).catch(err=>{
+                console.log(err)
+            })
         })
         .catch(err=>{
             console.log(err)
         })
-        .finaly(()=>{
-
-        })
+        
     }
    
     return (

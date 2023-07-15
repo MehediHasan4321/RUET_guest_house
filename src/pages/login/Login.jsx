@@ -34,7 +34,7 @@ const Login = () => {
                             <label htmlFor="remember" className='text-md'><input className='w-6 h-6' type="checkbox" name="remember" id="remember" /> Remember Me?</label>
                             <input className='bg-[#093363] text-white px-4 py-2' type="submit" value="Login" />
                         </div>
-                        <Link className='pt-4' to="/regeister">Don't have an Account?</Link>
+                        <Link className='pt-4' to="/regeister">Don't have an Account? Sign In</Link>
                     </form>
                 </div>
             </div>
