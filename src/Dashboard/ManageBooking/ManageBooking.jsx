@@ -4,12 +4,13 @@ import Swal from 'sweetalert2'
 import { denyBooking } from '../../allApi/denyBookingById'
 import useAxiosSecures from '../../Utlites/useAxiosSecures'
 import { useQuery } from '@tanstack/react-query'
+import { aproveBooking } from '../../allApi/aprovedBookingById'
 const ManageBooking = () => {
-   
-    const {axioxSucuser} = useAxiosSecures()
-    const {data:bookings=[],refetch} = useQuery({
-        queryKey:['allBooking'],
-        queryFn:async()=>{
+
+    const { axioxSucuser } = useAxiosSecures()
+    const { data: bookings = [], refetch } = useQuery({
+        queryKey: ['allBooking'],
+        queryFn: async () => {
             const res = await axioxSucuser(`allusersBooking`)
             return res.data
         }
@@ -26,7 +27,7 @@ const ManageBooking = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 denyBooking(id).then(res => {
-            
+
                     if (res.deletedCount > 0) {
                         Swal.fire(
                             'Denyed!',
@@ -39,6 +40,32 @@ const ManageBooking = () => {
 
             }
         })
+    }
+    const handleAprove = id => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Approved it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                aproveBooking(id).then(res=>{
+                    if(res.modifiedCount>0){
+                        Swal.fire(
+                            'Approved!',
+                            'Your file has been Approved.',
+                            'success'
+                        )
+                        refetch()
+                    }
+                })
+
+            }
+        })
+       
     }
     return (
         <div className="overflow-x-auto min-h-screen">
@@ -56,6 +83,7 @@ const ManageBooking = () => {
                         <th>Total Price</th>
                         <th>Is Payment</th>
                         <th>Booking Status</th>
+                        <th>Aprove</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -84,6 +112,7 @@ const ManageBooking = () => {
                             <td>{booking?.totalPrice}</td>
                             <td>{booking?.isPayment ? 'Payment Confirm' : 'Not Pay'}</td>
                             <td>{booking?.status}</td>
+                            <td><button onClick={() => handleAprove(booking?._id)} className='btn btn-sm'>Aprove</button></td>
                             <td><button onClick={() => handleDeny(booking?._id)} className='btn btn-sm'>Deny</button></td>
                         </tr>)
                     }

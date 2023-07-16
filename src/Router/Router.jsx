@@ -12,6 +12,7 @@ import ManageUser from '../Dashboard/ManageUser/ManageUser'
 import ManageBooking from '../Dashboard/ManageBooking/ManageBooking'
 import ManageRooms from '../Dashboard/ManageRooms/ManageRooms'
 import NotFoundPage from '../pages/NotFoundPage/NotFoundPage'
+import DashboardHome from '../Dashboard/DashboardHome/DashboardHome'
 const routers = createBrowserRouter([
     {
         path: '/',
@@ -45,6 +46,10 @@ const routers = createBrowserRouter([
         path: '/dashboard',
         element: <PrivetRoute><Dashboard /></PrivetRoute>,
         children: [
+            {
+                path:'/dashboard',
+                element:<DashboardHome/>
+            },
             {
                 path: '/dashboard/addroom',
                 element: <PrivetRoute><AddRoom /></PrivetRoute>

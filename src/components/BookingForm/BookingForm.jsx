@@ -31,7 +31,7 @@ const BookingForm = ({ room }) => {
         const totalPrice = parseFloat(form.totalPrice.value);
         const hostEmail = room?.hostEmail;
         const status= 'painding'
-        const booking = {name,userEmail,department,emplyee,from,to,gestQuantity,totalPrice,hostEmail,status,designation:userInfo?.designation,isPayment:'false'}
+        const booking = {name,userEmail,department,emplyee,from,to,gestQuantity,totalPrice,hostEmail,status,designation:userInfo?.designation,isPayment:false}
         saveBooking(booking)
         .then((res)=>{
             if(res.insertedId){

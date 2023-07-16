@@ -8,6 +8,7 @@ const DashboardNav = () => {
             <div className='container mx-auto flex justify-between items-center h-full'>
                 <Brand/>
                 <div className='flex gap-4 items-center h-full'>
+                    <Link to={'/dashboard'}>Home</Link>
                     <Link to={'/dashboard/manageBooking'}>Manage Bookings</Link>
                     <Link to={'/dashboard/manageUsers'}>Manage Users</Link>
                     <Link to={'/dashboard/manageRooms'}>Manage Rooms</Link>
