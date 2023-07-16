@@ -1,11 +1,20 @@
 import React from 'react'
 import { useLoaderData } from 'react-router-dom'
 import Swal from 'sweetalert2'
-
+import { denyBooking } from '../../allApi/denyBookingById'
+import useAxiosSecures from '../../Utlites/useAxiosSecures'
+import { useQuery } from '@tanstack/react-query'
 const ManageBooking = () => {
-    const bookings = useLoaderData()
-    const handleDeny = id=>{
-        console.log(id)
+   
+    const {axioxSucuser} = useAxiosSecures()
+    const {data:bookings=[],refetch} = useQuery({
+        queryKey:['allBooking'],
+        queryFn:async()=>{
+            const res = await axioxSucuser(`allusersBooking`)
+            return res.data
+        }
+    })
+    const handleDeny = id => {
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -14,15 +23,22 @@ const ManageBooking = () => {
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, deny it!'
-          }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
-              Swal.fire(
-                'Denyed!',
-                'Your file has been Denyed.',
-                'success'
-              )
+                denyBooking(id).then(res => {
+            
+                    if (res.deletedCount > 0) {
+                        Swal.fire(
+                            'Denyed!',
+                            'Your file has been Denyed.',
+                            'success'
+                        )
+                        refetch()
+                    }
+                })
+
             }
-          })
+        })
     }
     return (
         <div className="overflow-x-auto min-h-screen">
@@ -66,9 +82,9 @@ const ManageBooking = () => {
                             <td>{booking?.to}</td>
                             <td>{booking?.gestQuantity}</td>
                             <td>{booking?.totalPrice}</td>
-                            <td>{booking?.isPayment?'Payment Confirm': 'Not Pay'}</td>
+                            <td>{booking?.isPayment ? 'Payment Confirm' : 'Not Pay'}</td>
                             <td>{booking?.status}</td>
-                            <td><button onClick={()=>handleDeny(booking?._id)} className='btn btn-sm'>Deny</button></td>
+                            <td><button onClick={() => handleDeny(booking?._id)} className='btn btn-sm'>Deny</button></td>
                         </tr>)
                     }
 

@@ -1,20 +1,23 @@
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useState } from 'react'
 import { AuthContext } from '../../authProvider/AuthProvider'
-import { getUser } from '../../allApi/getUsers'
 import { saveBooking } from '../../allApi/saveBookingToDB'
 import Swal from 'sweetalert2'
-
+import useAxiosSecures from '../../Utlites/useAxiosSecures'
+import { useQuery } from '@tanstack/react-query'
 const BookingForm = ({ room }) => {
     const [quantity, setQuandtity] = useState(1)
     const {user,userRole} = useContext(AuthContext)
-    const [userInfo,setUserInfo] = useState({})
-
-    useEffect(()=>{
-        getUser(user?.email).then(res=>{
-            setUserInfo(res)
-        })
-    },[user])
-
+    
+    const {axioxSucuser} = useAxiosSecures()
+    const {data:userInfo={}} = useQuery({
+        queryKey:["users"],
+        queryFn:async()=>{
+           const res = await axioxSucuser(`users/${user?.email}`)
+            return res.data
+        }
+    })
+   
+   
     const handelBooking = event => {
         event.preventDefault()
         const form = event.target;
@@ -32,6 +35,7 @@ const BookingForm = ({ room }) => {
         saveBooking(booking)
         .then((res)=>{
             if(res.insertedId){
+                form.reset()
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',

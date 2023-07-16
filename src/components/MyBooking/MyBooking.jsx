@@ -1,11 +1,26 @@
-import React from 'react'
-import { useLoaderData } from 'react-router-dom'
+import React, { useContext, useState } from 'react'
 import Swal from 'sweetalert2'
-
+import useAxiosSecures from '../../Utlites/useAxiosSecures'
+import { useQuery } from '@tanstack/react-query'
+import { AuthContext } from '../../authProvider/AuthProvider'
+import { DeleteBooking } from '../../allApi/deleteBookingById'
 const MyBooking = () => {
-    const bookingInfo = useLoaderData()
+    const { user } = useContext(AuthContext)
+    const { axioxSucuser } = useAxiosSecures()
 
-    const handelCancelbooking = id=>{
+
+
+    const { data: bookingInfo = [], refetch } = useQuery({
+        queryKey: ['myBooking'],
+        queryFn: async () => {
+            const res = await axioxSucuser(`mybooking/${user.email}`)
+            return res.data
+        }
+    })
+
+
+
+    const handelCancelbooking = id => {
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -14,20 +29,26 @@ const MyBooking = () => {
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, cancel it!'
-          }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
-              Swal.fire(
-                'cancelled!',
-                'Your file has been cancelled.',
-                'success'
-              )
+                DeleteBooking(id)
+                    .then(res => {
+                        refetch()
+                        if (res.deletedCount > 0) {
+                            Swal.fire(
+                                'cancelled!',
+                                'Your file has been cancelled.',
+                                'success'
+                            )
+                        }
+                    })
             }
-          })
+        })
     }
 
-    if(bookingInfo<1){
+    if (bookingInfo < 1) {
         return <h1 className='text-3xl font-semibold text-neutral-700 text-center mt-10 min-h-screen'>You Have Not Booking Yet. Please Booking First</h1>
-    }else{
+    } else {
         return (
             <div className="overflow-x-auto min-h-screen">
                 <table className="table table-zebra">
@@ -49,7 +70,7 @@ const MyBooking = () => {
                     </thead>
                     <tbody>
                         {
-                            bookingInfo.map((info)=><tr key={info._id}>
+                            bookingInfo.map((info) => <tr key={info._id}>
                                 <th>{bookingInfo.length}</th>
                                 <td>{info?.name}</td>
                                 <td>Not Found</td>
@@ -59,17 +80,17 @@ const MyBooking = () => {
                                 <td>{info?.gestQuantity}</td>
                                 <td>{info?.totalPrice}</td>
                                 <td>{info?.hostEmail}</td>
-                                <td><button onClick={()=>handelCancelbooking(info._id)} className='btn btn-sm'>cancel</button></td>
+                                <td><button onClick={() => handelCancelbooking(info._id)} className='btn btn-sm'>cancel</button></td>
                                 <td><button className='btn btn-sm'>Pay</button></td>
                             </tr>)
                         }
-                        
+
                     </tbody>
                 </table>
             </div>
         )
     }
-    
+
 }
 
 export default MyBooking

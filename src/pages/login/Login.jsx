@@ -1,26 +1,26 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Footer from '../../components/Footer/Footer'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { AuthContext } from '../../authProvider/AuthProvider'
 
 const Login = () => {
     const {loginWithEmailPass} = useContext(AuthContext)
     const navigate = useNavigate()
+    const location = useLocation()
+    const from = location?.state?.from?.pathname || '/'
+    const [error,setError] = useState('')
     const handleLogin = e=>{
         e.preventDefault()
         const form = e.target
         const email = form.email.value;
         const password = form.password.value;
         loginWithEmailPass(email,password).then(()=>{
-            alert('login Successfull')
             form.reset()
-
+            navigate(from,{replace:true})
         }).catch(err=>{
-            console.log(err)
+            setError(err.message)
         })
-        .finally(()=>{
-            navigate('/')
-        })
+        
     }
     return (
         <>
@@ -34,6 +34,7 @@ const Login = () => {
                             <label htmlFor="remember" className='text-md'><input className='w-6 h-6' type="checkbox" name="remember" id="remember" /> Remember Me?</label>
                             <input className='bg-[#093363] text-white px-4 py-2' type="submit" value="Login" />
                         </div>
+                        {error && <p className='text-sm text-red-600'>{error}</p>}
                         <Link className='pt-4' to="/regeister">Don't have an Account? Sign In</Link>
                     </form>
                 </div>

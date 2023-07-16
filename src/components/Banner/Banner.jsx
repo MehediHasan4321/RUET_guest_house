@@ -33,10 +33,10 @@ const Banner = () => {
         cssEase: "linear"
       };
     return (
-        <div className="">
+        <div className=" overflow-hidden">
             <Slider {...settings}>
                 {banners.map(banner=><div className=" h-[70vh]" key={banner._id}>
-                    <img className="w-full h-full" src={banner.image} alt="" />
+                    <img className="w-full h-full" src={banner.image} alt="Bannar Image" />
                 </div>)}
             </Slider>
         </div>

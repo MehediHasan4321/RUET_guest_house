@@ -4,7 +4,7 @@ import RoomCard from '../RoomCard/RoomCard'
 const GestRooms = () => {
     const [rooms,setRooms] = useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/allRooms').then(res=>res.json()).then(data=>setRooms(data))
+        fetch('https://ruet-gest-house-server.vercel.app/allRooms').then(res=>res.json()).then(data=>setRooms(data))
     },[])
 
     return (

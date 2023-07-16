@@ -9,7 +9,7 @@ export const saveUserToDB = async(userInfo,role="user")=>{
         emploee:userInfo.emploee
 
     }
-    const  res = await fetch(`http://localhost:5000/users/${userInfo.email}`,{
+    const  res = await fetch(`https://ruet-gest-house-server.vercel.app/users/${userInfo.email}`,{
         method:"PUT",
         headers:{'content-type':'application/json'},
         body:JSON.stringify(saveUser)

@@ -1,4 +1,4 @@
-import {createBrowserRouter} from 'react-router-dom'
+import { createBrowserRouter } from 'react-router-dom'
 import Home from '../Layout/Home/Home'
 import Login from '../pages/login/Login'
 import Regeister from '../pages/Regeister/Regeister'
@@ -11,60 +11,65 @@ import AddRoom from '../Dashboard/AddRoom/AddRoom'
 import ManageUser from '../Dashboard/ManageUser/ManageUser'
 import ManageBooking from '../Dashboard/ManageBooking/ManageBooking'
 import ManageRooms from '../Dashboard/ManageRooms/ManageRooms'
-const  routers= createBrowserRouter([
+import NotFoundPage from '../pages/NotFoundPage/NotFoundPage'
+const routers = createBrowserRouter([
     {
-        path:'/',
-        element:<Home/>,
-        children:[
+        path: '/',
+        element: <Home />,
+        children: [
             {
-                path:'/',
-                element:<LandingPage/>
+                path: '/',
+                element: <LandingPage />
             },
             {
-                path:'/regeister',
-                element:<Regeister/>
+                path: '/regeister',
+                element: <Regeister />
             },
             {
-                path:"/login",
-                element:<Login/>
+                path: "/login",
+                element: <Login />
             },
             {
-             path:"/roomDetails/:id",
-             element:<PrivetRoute><RoomDetails/></PrivetRoute>,
-             loader:({params})=>fetch(`http://localhost:5000/allRooms/${params.id}`)
+                path: "/roomDetails/:id",
+                element: <PrivetRoute><RoomDetails /></PrivetRoute>,
+                loader: ({ params }) => fetch(`https://ruet-gest-house-server.vercel.app/allRooms/${params.id}`)
             },
             {
-                path:'/myBooking/:email',
-                element:<MyBooking/>,
-                loader:({params})=>fetch(`http://localhost:5000/mybooking/${params.email}`)
+                path: '/myBooking/:email',
+                element: <PrivetRoute><MyBooking /></PrivetRoute>
+                
             }
         ]
     },
     {
-        path:'/dashboard',
-        element:<Dashboard/>,
-        children:[
+        path: '/dashboard',
+        element: <PrivetRoute><Dashboard /></PrivetRoute>,
+        children: [
             {
-                path:'/dashboard/addroom',
-                element:<AddRoom/>
+                path: '/dashboard/addroom',
+                element: <PrivetRoute><AddRoom /></PrivetRoute>
             },
             {
-                path:'/dashboard/manageUsers',
-                element:<ManageUser/>,
-                loader:()=>fetch('http://localhost:5000/users')
+                path: '/dashboard/manageUsers',
+                element: <PrivetRoute><ManageUser /></PrivetRoute>,
+                loader: () => fetch('https://ruet-gest-house-server.vercel.app/users')
             },
             {
-                path:'/dashboard/manageBooking',
-                element:<ManageBooking/>,
-                loader:()=>fetch('http://localhost:5000/allusersBooking')
+                path: '/dashboard/manageBooking',
+                element: <PrivetRoute><ManageBooking /></PrivetRoute>,
+                loader: () => fetch('https://ruet-gest-house-server.vercel.app/allusersBooking')
             },
             {
-                path:'/dashboard/manageRooms',
-                element:<ManageRooms/>,
-                loader:()=>fetch('http://localhost:5000/allRooms')
+                path: '/dashboard/manageRooms',
+                element: <PrivetRoute><ManageRooms /></PrivetRoute>,
+                loader: () => fetch('https://ruet-gest-house-server.vercel.app/allRooms')
             }
         ]
-        }
+    },
+    {
+        path:'*',
+        element:<NotFoundPage/>
+    }
 ])
 
 export default routers
