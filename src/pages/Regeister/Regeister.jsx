@@ -14,8 +14,10 @@ const Regeister = () => {
     const handleRegeister = e=>{
         e.preventDefault()
         const form = e.target
-        const banglaName = form.banglaName.value
         const englishName = form.englishName.value
+        const image = form.image.files[0]
+        const formData = new FormData()
+        formData.append('image',image)
         const emploee = form.employee.value;
         const department = form.department.value;
         const designation = form.designation.value;
@@ -50,10 +52,6 @@ const Regeister = () => {
                 <hr className='border-[1px] border-[#032447] my-3' />
                 <div className='w-full flex gap-6'>
                     <div className='w-1/2 space-y-4'>
-                        <div className='w-full flex items-center border-[1px] border-white text-black'>
-                            <label className='text-xl px-2 text-white'><BsFillPersonFill /></label>
-                            <input className='w-full px-2 py-1 outline-none' required type="text" name="banglaName"  placeholder='Enter Your Name (Bangla)' />
-                        </div>
                         <div className='w-full flex items-center border-[1px] border-white '>
                             <label className='text-xl px-2 text-white'><BsFillPersonFill /></label>
                             <input className='w-full px-2 py-1 outline-none' required  type="text" name="englishName"  placeholder='Enter Your Name (English)' />
@@ -70,6 +68,10 @@ const Regeister = () => {
                             <label className='text-xl px-2 text-white'><BsFillPersonFill /></label>
                             <input className='w-full px-2 py-1 outline-none' required  type="text" name="designation"  placeholder='Select Your Designation' />
                         </div>
+                        {/* <div className='w-full flex items-center border-[1px] border-white text-black'>
+                            <label className='text-xl px-2 text-white'><BsFillPersonFill /></label>
+                            <input className='w-full px-2 py-1 outline-none ' required type="file" name="image" />
+                        </div> */}
                     </div>
                     <div className='w-1/2 space-y-4'>
                         <div className='w-full flex items-center border-[1px] border-white text-black'>

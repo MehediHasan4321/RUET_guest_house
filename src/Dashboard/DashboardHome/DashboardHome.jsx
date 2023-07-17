@@ -2,6 +2,7 @@ import React from 'react'
 import DashboardCard from '../../components/Booking/DashboardCard'
 import useAxiosSecures from '../../Utlites/useAxiosSecures'
 import { useQuery } from '@tanstack/react-query'
+import AdminProfile from '../AdminProfile/AdminProfile'
 
 const DashboardHome = () => {
 
@@ -63,9 +64,7 @@ const DashboardHome = () => {
                 <DashboardCard title={'Deactive Rooms'} number={2}/>
                 <DashboardCard title={'Total Admin'} number={totalAdmin.length}/>
             </div>
-            <div className='w-96 h-96 border-2'>
-
-            </div>
+            <AdminProfile/>
         </div>
     )
 }

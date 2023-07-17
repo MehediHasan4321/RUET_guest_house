@@ -2,21 +2,11 @@ import { useContext, useState } from 'react'
 import { AuthContext } from '../../authProvider/AuthProvider'
 import { saveBooking } from '../../allApi/saveBookingToDB'
 import Swal from 'sweetalert2'
-import useAxiosSecures from '../../Utlites/useAxiosSecures'
-import { useQuery } from '@tanstack/react-query'
+import GetUserByEmail from '../../allApi/GetUserByEmail'
 const BookingForm = ({ room }) => {
     const [quantity, setQuandtity] = useState(1)
     const {user,userRole} = useContext(AuthContext)
-    
-    const {axioxSucuser} = useAxiosSecures()
-    const {data:userInfo={}} = useQuery({
-        queryKey:["users"],
-        queryFn:async()=>{
-           const res = await axioxSucuser(`users/${user?.email}`)
-            return res.data
-        }
-    })
-   
+    const {data:userInfo=[],refetch} = GetUserByEmail(user?.email)
    
     const handelBooking = event => {
         event.preventDefault()
