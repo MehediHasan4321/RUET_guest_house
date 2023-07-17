@@ -13,7 +13,6 @@ import ManageBooking from '../Dashboard/ManageBooking/ManageBooking'
 import ManageRooms from '../Dashboard/ManageRooms/ManageRooms'
 import NotFoundPage from '../pages/NotFoundPage/NotFoundPage'
 import DashboardHome from '../Dashboard/DashboardHome/DashboardHome'
-import UpdataProfile from '../Dashboard/UpdataProfile/UpdataProfile'
 const routers = createBrowserRouter([
     {
         path: '/',
@@ -69,10 +68,6 @@ const routers = createBrowserRouter([
                 path: '/dashboard/manageRooms',
                 element: <PrivetRoute><ManageRooms /></PrivetRoute>,
                 loader: () => fetch('https://ruet-gest-house-server.vercel.app/allRooms')
-            },
-            {
-                path:'/dashboard/updateProfile',
-                element:<UpdataProfile/>
             }
         ]
     },
