@@ -51,8 +51,11 @@ const ManageBooking = () => {
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, Approved it!'
         }).then((result) => {
+         const updateBooking = {
+                status:'aprove'
+            }
             if (result.isConfirmed) {
-                aproveBooking(id).then(res=>{
+                aproveBooking(id,updateBooking).then(res=>{
                     if(res.modifiedCount>0){
                         Swal.fire(
                             'Approved!',

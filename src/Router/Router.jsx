@@ -13,6 +13,7 @@ import ManageBooking from '../Dashboard/ManageBooking/ManageBooking'
 import ManageRooms from '../Dashboard/ManageRooms/ManageRooms'
 import NotFoundPage from '../pages/NotFoundPage/NotFoundPage'
 import DashboardHome from '../Dashboard/DashboardHome/DashboardHome'
+import Payments from '../Dashboard/Payments/Payments'
 const routers = createBrowserRouter([
     {
         path: '/',
@@ -39,6 +40,11 @@ const routers = createBrowserRouter([
                 path: '/myBooking/:email',
                 element: <PrivetRoute><MyBooking /></PrivetRoute>
                 
+            },
+            {
+                path:'/payments/:id',
+                element:<PrivetRoute><Payments/></PrivetRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/booking/${params.id}`)
             }
         ]
     },

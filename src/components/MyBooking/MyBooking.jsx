@@ -1,14 +1,15 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import Swal from 'sweetalert2'
 import useAxiosSecures from '../../Utlites/useAxiosSecures'
 import { useQuery } from '@tanstack/react-query'
 import { AuthContext } from '../../authProvider/AuthProvider'
 import { DeleteBooking } from '../../allApi/deleteBookingById'
+import { useNavigate } from 'react-router-dom'
 const MyBooking = () => {
     const { user } = useContext(AuthContext)
     const { axioxSucuser } = useAxiosSecures()
 
-
+    const navigate = useNavigate()
 
     const { data: bookingInfo = [], refetch } = useQuery({
         queryKey: ['myBooking'],
@@ -73,7 +74,7 @@ const MyBooking = () => {
                             bookingInfo.map((info) => <tr key={info._id}>
                                 <th>{bookingInfo.length}</th>
                                 <td>{info?.name}</td>
-                                <td>Not Found</td>
+                                <td>{info?.designation}</td>
                                 <td>{info?.department}</td>
                                 <td>{info?.from}</td>
                                 <td>{info?.to}</td>
@@ -81,10 +82,9 @@ const MyBooking = () => {
                                 <td>{info?.totalPrice}</td>
                                 <td>{info?.hostEmail}</td>
                                 <td><button onClick={() => handelCancelbooking(info._id)} className='btn btn-sm'>cancel</button></td>
-                                <td><button className='btn btn-sm'>Pay</button></td>
+                                <td><button disabled={info?.status !== 'aprove'}  onClick={()=>navigate(`/payments/${info._id}`)} className='btn btn-sm' >pay</button></td>
                             </tr>)
                         }
-
                     </tbody>
                 </table>
             </div>
@@ -94,3 +94,4 @@ const MyBooking = () => {
 }
 
 export default MyBooking
+

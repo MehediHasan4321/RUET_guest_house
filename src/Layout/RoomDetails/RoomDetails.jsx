@@ -7,11 +7,11 @@ const RoomDetails = () => {
 
     return (
         <div className='container mx-auto my-12'>
-            <div className='flex gap-3'>
-                <img className='w-1/2 ' src={mainImage} alt="" />
-                <div className='w-1/2 grid grid-cols-2 grid-rows-2 gap-4'>
+            <div className='flex gap-3 rounded-xl overflow-hidden'>
+                <img className='w-1/2 h-[60vh] border-[1px] object-cover ' src={mainImage} alt="Main Image" />
+                <div className='w-1/2 h-[60vh] grid grid-cols-2  grid-rows-2 gap-4'>
                     {
-                        subImage.map((image,index)=><img className='w-full h-full' key={index} src={image} alt='sub Image'/>)
+                        subImage.map((image,index)=><img className='w-full h-full border-[1px]' key={index} src={image} alt='sub Image'/>)
                     }
                 </div>
             </div>
@@ -28,7 +28,7 @@ const RoomDetails = () => {
                             </div>
                         </div>
                         <div className='flex  items-center gap-2'>
-                            <img className='w-12 h-12 rounded-full border-[1px]' src={hostImage} alt="host" />
+                            <img className='w-12 h-12 rounded-full border-[1px]' src={hostImage?hostImage:'https://www.treasury.gov.ph/wp-content/uploads/2022/01/male-placeholder-image.jpeg'} alt="host" />
                             <div>
                                 <h1>{hostName}</h1>
                                 <p>{hostEmail}</p>
