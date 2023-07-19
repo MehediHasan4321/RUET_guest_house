@@ -44,7 +44,7 @@ const routers = createBrowserRouter([
             {
                 path:'/payments/:id',
                 element:<PrivetRoute><Payments/></PrivetRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/booking/${params.id}`)
+                loader: ({ params }) => fetch(`https://ruet-gest-house-server.vercel.app/booking/${params.id}`)
             }
         ]
     },
