@@ -24,6 +24,7 @@ const Regeister = () => {
         const email = form.email.value;
         const varificationNumber = form.varificationNumber.value;
         const regeisterInfo = {name,emploee,department,designation,phoneNumber,email}
+        console.log(regeisterInfo)
         createUserWithEmailPass(email,password).then(()=>{
             updateProfile(auth.currentUser,{displayName:name}).then(()=>{
                 saveUserToDB(regeisterInfo).then((res)=>{
@@ -63,7 +64,7 @@ const Regeister = () => {
                         </div>
                         <div className='w-full flex items-center border-[1px] border-white text-black'>
                             <label className='text-xl px-2 text-white'><BsFillPersonFill /></label>
-                            <input className='w-full px-2 py-1 outline-none' required  type="text" name="designation"  placeholder='Select Your Designation' />
+                            <input className='w-full px-2 py-1 outline-none' required  type="text" name="designation"  placeholder='Where are you come from?' />
                         </div>
             
                     </div>

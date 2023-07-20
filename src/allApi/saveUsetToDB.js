@@ -1,6 +1,6 @@
 export const saveUserToDB = async(userInfo,role="user")=>{
    const saveUser = {
-        name:userInfo.englishName,
+        name:userInfo.name,
         email:userInfo.email,
         role:role,
         designation:userInfo.designation,

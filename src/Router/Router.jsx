@@ -14,6 +14,7 @@ import ManageRooms from '../Dashboard/ManageRooms/ManageRooms'
 import NotFoundPage from '../pages/NotFoundPage/NotFoundPage'
 import DashboardHome from '../Dashboard/DashboardHome/DashboardHome'
 import Payments from '../Dashboard/Payments/Payments'
+import UpdateRoom from '../Dashboard/UpdateRoom/UpdateRoom'
 const routers = createBrowserRouter([
     {
         path: '/',
@@ -74,6 +75,11 @@ const routers = createBrowserRouter([
                 path: '/dashboard/manageRooms',
                 element: <PrivetRoute><ManageRooms /></PrivetRoute>,
                 loader: () => fetch('https://ruet-gest-house-server.vercel.app/allRooms')
+            },
+            {
+                path:'/dashboard/updateRoom/:id',
+                element:<PrivetRoute><UpdateRoom/></PrivetRoute>,
+                loader: ({ params }) => fetch(`https://ruet-gest-house-server.vercel.app/allRooms/${params.id}`)
             }
         ]
     },

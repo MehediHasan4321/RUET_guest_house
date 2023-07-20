@@ -60,8 +60,8 @@ const DashboardHome = () => {
                 <DashboardCard title={'Total Rooms'} number={totalRooms.length}/>
                 <DashboardCard title={'Painding Booking'} number={paindingBooking.length}/>
                 <DashboardCard title={'Aprove Booking'} number={aproveBooking.length} />
-                <DashboardCard title={'Active Rooms'} number={8}/>
-                <DashboardCard title={'Deactive Rooms'} number={2}/>
+                {/* <DashboardCard title={'Active Rooms'} number={8}/>
+                <DashboardCard title={'Deactive Rooms'} number={2}/> */}
                 <DashboardCard title={'Total Admin'} number={totalAdmin.length}/>
             </div>
             <AdminProfile/>

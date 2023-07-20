@@ -1,14 +1,14 @@
-import React from 'react'
-import { useLoaderData } from 'react-router-dom'
+import {AiOutlineCheckCircle} from 'react-icons/ai'
 import Swal from 'sweetalert2'
 import { denyBooking } from '../../allApi/denyBookingById'
 import useAxiosSecures from '../../Utlites/useAxiosSecures'
 import { useQuery } from '@tanstack/react-query'
 import { aproveBooking } from '../../allApi/aprovedBookingById'
+import Loading from '../../components/Loading/Loading'
 const ManageBooking = () => {
 
     const { axioxSucuser } = useAxiosSecures()
-    const { data: bookings = [], refetch } = useQuery({
+    const { data: bookings = [], refetch,isLoading } = useQuery({
         queryKey: ['allBooking'],
         queryFn: async () => {
             const res = await axioxSucuser(`allusersBooking`)
@@ -92,32 +92,32 @@ const ManageBooking = () => {
                 </thead>
                 <tbody>
                     {
-                        bookings.map((booking, index) => <tr key={booking._id}>
-                            <th>{index + 1}</th>
-                            <td>
-                                <div className="flex items-center space-x-3">
-                                    <div className="avatar">
-                                        <div className="mask mask-squircle w-12 h-12">
-                                            <img className='border-[1px] rounded-full' src="" alt="User" />
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div className="font-bold">{booking?.name}</div>
-                                        <div className="text-sm opacity-50">{booking?.userEmail}</div>
+                        isLoading? <Loading/>:bookings.map((booking, index) => <tr key={booking._id}>
+                        <th>{index + 1}</th>
+                        <td>
+                            <div className="flex items-center space-x-3">
+                                <div className="avatar">
+                                    <div className="mask mask-squircle w-12 h-12">
+                                        <img className='border-[1px] rounded-full' src="" alt="User" />
                                     </div>
                                 </div>
-                            </td>
-                            <td>{booking?.designation}</td>
-                            <td>{booking?.department}</td>
-                            <td>{booking?.from}</td>
-                            <td>{booking?.to}</td>
-                            <td>{booking?.gestQuantity}</td>
-                            <td>{booking?.totalPrice}</td>
-                            <td>{booking?.isPayment ? 'Payment Confirm' : 'Not Pay'}</td>
-                            <td>{booking?.status}</td>
-                            <td><button onClick={() => handleAprove(booking?._id)} className='btn btn-sm'>Aprove</button></td>
-                            <td><button onClick={() => handleDeny(booking?._id)} className='btn btn-sm'>Deny</button></td>
-                        </tr>)
+                                <div>
+                                    <div className="font-bold">{booking?.name}</div>
+                                    <div className="text-sm opacity-50">{booking?.userEmail}</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>{booking?.designation}</td>
+                        <td>{booking?.department}</td>
+                        <td>{booking?.from}</td>
+                        <td>{booking?.to}</td>
+                        <td>{booking?.gestQuantity}</td>
+                        <td>{booking?.totalPrice}</td>
+                        <td>{booking?.isPayment ? 'Payment Confirm' : 'Not Pay'}</td>
+                        <td>{booking?.status}</td>
+                        <td>{booking?.status === 'aprove'?<button className='btn btn-sm bg-green-400'>Approved <AiOutlineCheckCircle className='text-white text-xl'/></button> : <button onClick={() => handleAprove(booking?._id)} className='btn btn-sm'>Is Aprove?</button> }</td>
+                        <td><button onClick={() => handleDeny(booking?._id)} disabled={booking?.status==='aprove'} className='btn btn-sm'>Deny</button></td>
+                    </tr>)
                     }
 
                 </tbody>
@@ -127,3 +127,5 @@ const ManageBooking = () => {
 }
 
 export default ManageBooking
+
+//

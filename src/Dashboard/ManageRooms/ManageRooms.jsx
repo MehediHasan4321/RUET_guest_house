@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLoaderData } from 'react-router-dom'
+import { Link, useLoaderData } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import { deleteRoom } from '../../allApi/deleteRoomById'
 import useAxiosSecures from '../../Utlites/useAxiosSecures'
@@ -81,7 +81,7 @@ const ManageRooms = () => {
                                 <td>{room?.guest}</td>
                                 <td>{room?.price}</td>
                                 <th>
-                                    <button  onClick={() => window.my_modal_4.showModal()} className="btn btn-ghost btn-xs">Update</button>
+                                    <Link to={`/dashboard/updateRoom/${room?._id}`} className="btn btn-ghost btn-xs">Update</Link>
                                 </th>
                                 <th>
                                     <button onClick={() => handlDelete(room._id)} className="btn btn-ghost btn-xs">Delete</button>
@@ -94,17 +94,6 @@ const ManageRooms = () => {
 
                 </table>
             </div>
-            {/* You can open the modal using ID.showModal() method */}
-            <dialog id="my_modal_4" className="modal">
-                <form method="dialog" className="modal-box w-11/12 max-w-5xl">
-                    <h3 className="font-bold text-lg">Hello!</h3>
-                    <p className="py-4">Click the button below to close</p>
-                    <div className="modal-action">
-                        {/* if there is a button, it will close the modal */}
-                        <button className="btn">Close</button>
-                    </div>
-                </form>
-            </dialog>
         </>
     )
 }
