@@ -41,7 +41,7 @@ const UpdateRoom = () => {
     return (
         <div style={{ backgroundImage: `linear-gradient(80deg,#ffafbd,#ffc3a0)` }}>
             <div className='container mx-auto h-[88vh] flex items-center'>
-                <form onSubmit={handleUpdateRoom} className='space-y-3 w-full bg-[#138496] p-10'>
+                <form onSubmit={handleUpdateRoom} className='space-y-3 w-full bg-[#138496] p-10 rounded-xl'>
                     <div className='flex gap-3'>
                         <div className='w-full'>
                             <label htmlFor="roomName" className='text-white'>Update Your Room Name</label>
@@ -73,15 +73,26 @@ const UpdateRoom = () => {
                         </div>
                     </div>
                     <div className='flex gap-3 w-full'>
-                        <input type="number" name="bathroom" defaultValue={bathroom} required className='w-1/3 p-2  outline-none' id="bathroom" placeholder='Bathroom Quantity' />
-                        <input type="number" name="guest" defaultValue={guest} required className='w-1/3 p-2  outline-none' id="guest" placeholder='Total Guest Quantity' />
-                        <input type="number" name="price" defaultValue={price} required className='w-1/3 p-2  outline-none' id="price" placeholder='Room Price Pay Day' />
+                        <div className='w-full flex flex-col'>
+                            <label htmlFor="bathroom" className='text-white'>Update Your Room Bathroom Quantity</label>
+                            <input type="number" name="bathroom" defaultValue={bathroom} required className='w-full p-2  outline-none' id="bathroom" placeholder='Bathroom Quantity' />
+                        </div>
+                        <div className='w-full flex flex-col'>
+                            <label htmlFor="guest" className='text-white'>Update Your Room guest Quantity</label>
+                            <input type="number" name="guest" defaultValue={guest} required className='w-full p-2  outline-none' id="guest" placeholder='Total Guest Quantity' />
+                        </div>
+                        <div className='w-full flex flex-col'>
+                            <label htmlFor="price" className='text-white'>Update Your Room Price</label>
+                            <input type="number" name="price" defaultValue={price} required className='w-full p-2  outline-none' id="price" placeholder='Room Price Pay Day' />
+
+                        </div>
                     </div>
                     <div>
+                        <label htmlFor="description" className='text-white'>Update Your Room Description</label>
                         <textarea name="description" defaultValue={description} required id="description" className='w-full h-32 p-2  outline-none' placeholder='Enter Room Description'></textarea>
                     </div>
                     <div>
-                        <input type="submit" value="Update Room" className='w-full bg-red-200 hover:bg-purple-400 py-2' />
+                        <input type="submit" value="Update Room" className='w-full bg-red-200 hover:bg-purple-400 py-2 font-semibold' />
                     </div>
                 </form>
             </div>
