@@ -1,5 +1,4 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import Footer from '../../components/Footer/Footer'
 import { useContext, useState } from 'react'
 import { AuthContext } from '../../authProvider/AuthProvider'
 

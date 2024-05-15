@@ -27,7 +27,7 @@ const AuthProvider = ({children}) => {
             setLoading(false)
         })
         return ()=>unsubscribe()
-    },[])
+    },[auth])
 
     useEffect(()=>{
         getUserRole(user?.email).then(data=>setUserRole(data.role))

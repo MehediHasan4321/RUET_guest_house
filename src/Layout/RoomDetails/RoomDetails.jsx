@@ -21,10 +21,10 @@ const RoomDetails = () => {
                         <div>
                             <h1 className='text-xl font-semibold'>{title}</h1>
                             <div className='flex flex-row gap-4'>
-                                <span>{guest} guests</span>
+                                <span>{guest} Guest</span>
                                 <span>{bathroom} bathroom</span>
                                 <span>{availableSet} available seat</span>
-                                <span>{price} per day/person</span>
+                                <span>{price} per day</span>
                             </div>
                         </div>
                         <div className='flex  items-center gap-2'>

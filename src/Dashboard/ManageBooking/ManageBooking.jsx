@@ -83,10 +83,10 @@ const ManageBooking = () => {
                         <th>From</th>
                         <th>To</th>
                         <th>Total Guest</th>
-                        <th>Total Price</th>
-                        <th>Is Payment</th>
+                        <th>Total Bill</th>
+                        <th>Payment status</th>
                         <th>Booking Status</th>
-                        <th>Aprove</th>
+                        <th>Approved?</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -115,8 +115,8 @@ const ManageBooking = () => {
                         <td>{booking?.totalPrice}</td>
                         <td>{booking?.isPayment ? 'Payment Confirm' : 'Not Pay'}</td>
                         <td>{booking?.status}</td>
-                        <td>{booking?.status === 'aprove'?<button className='btn btn-sm bg-green-400'>Approved <AiOutlineCheckCircle className='text-white text-xl'/></button> : <button onClick={() => handleAprove(booking?._id)} className='btn btn-sm'>Is Aprove?</button> }</td>
-                        <td><button onClick={() => handleDeny(booking?._id)} disabled={booking?.status==='aprove'} className='btn btn-sm'>Deny</button></td>
+                        <td>{booking?.status === 'aprove'?<button className='btn btn-sm bg-green-400'>Approval <AiOutlineCheckCircle className='text-white text-xl'/></button> : <button onClick={() => handleAprove(booking?._id)} className='btn btn-sm'>Is Aprove?</button> }</td>
+                        <td><button onClick={() => handleDeny(booking?._id)} disabled={booking?.status==='aprove'} className='btn btn-sm'>Denied</button></td>
                     </tr>)
                     }
 

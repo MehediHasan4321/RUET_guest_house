@@ -1,4 +1,3 @@
-import React from 'react'
 import { useLoaderData, useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import { updateRoom } from '../../allApi/updateRoomById'

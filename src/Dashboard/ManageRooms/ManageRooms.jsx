@@ -1,5 +1,4 @@
-import React from 'react'
-import { Link, useLoaderData } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import { deleteRoom } from '../../allApi/deleteRoomById'
 import useAxiosSecures from '../../Utlites/useAxiosSecures'

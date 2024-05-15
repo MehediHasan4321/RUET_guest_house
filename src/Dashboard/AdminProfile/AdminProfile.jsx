@@ -1,18 +1,17 @@
-import React, { useContext } from 'react'
+import  { useContext } from 'react'
 import { AuthContext } from '../../authProvider/AuthProvider'
 import GetUserByEmail from '../../allApi/GetUserByEmail'
-import { AiOutlineCloudUpload } from 'react-icons/ai'
-import { Link } from 'react-router-dom'
+
 
 const AdminProfile = () => {
     const { user } = useContext(AuthContext)
     const { data } = GetUserByEmail(user?.email)
-    const handlaSubmit = e => {
-        e.preventDefault()
-        const form = e.target;
-        const image = form.image;
-        console.log(image)
-    }
+    // const handlaSubmit = e => {
+    //     e.preventDefault()
+    //     const form = e.target;
+    //     const image = form.image;
+    //     console.log(image)
+    // }
     return (
         <div className='container mx-auto my-10'>
             <div className='flex gap-4'>

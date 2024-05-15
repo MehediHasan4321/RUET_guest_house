@@ -3,10 +3,11 @@ import { AuthContext } from '../../authProvider/AuthProvider'
 import { saveBooking } from '../../allApi/saveBookingToDB'
 import Swal from 'sweetalert2'
 import GetUserByEmail from '../../allApi/GetUserByEmail'
+import {differenceInDays} from 'date-fns'
 const BookingForm = ({ room }) => {
     const [quantity, setQuandtity] = useState(1)
     const { user, userRole } = useContext(AuthContext)
-    const { data: userInfo = [], refetch } = GetUserByEmail(user?.email)
+    const { data: userInfo = [] } = GetUserByEmail(user?.email)
 
     const handelBooking = event => {
         event.preventDefault()

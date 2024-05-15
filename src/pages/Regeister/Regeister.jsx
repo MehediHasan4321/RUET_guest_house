@@ -2,7 +2,7 @@ import { BsFillPersonFill, BsFillTelephoneFill, BsFillLockFill } from 'react-ico
 import { getAuth, updateProfile } from "firebase/auth";
 import { AiFillMail } from 'react-icons/ai'
 import { Link, useNavigate } from 'react-router-dom'
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { AuthContext } from '../../authProvider/AuthProvider'
 import app from '../../firebase/firebase_config';
 import { saveUserToDB } from '../../allApi/saveUsetToDB';
@@ -20,9 +20,9 @@ const Regeister = () => {
         const designation = form.designation.value;
         const phoneNumber = form.phoneNumber.value;
         const password = form.password.value;
-        const confirmPassword = form.confirmPassword.value
+        //const confirmPassword = form.confirmPassword.value
         const email = form.email.value;
-        const varificationNumber = form.varificationNumber.value;
+       // const varificationNumber = form.varificationNumber.value;
         const regeisterInfo = {name,emploee,department,designation,phoneNumber,email}
         console.log(regeisterInfo)
         createUserWithEmailPass(email,password).then(()=>{

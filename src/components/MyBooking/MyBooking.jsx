@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import Swal from 'sweetalert2'
 import useAxiosSecures from '../../Utlites/useAxiosSecures'
 import { useQuery } from '@tanstack/react-query'

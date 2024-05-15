@@ -1,4 +1,3 @@
-import React from 'react'
 import DashboardCard from '../../components/Booking/DashboardCard'
 import useAxiosSecures from '../../Utlites/useAxiosSecures'
 import { useQuery } from '@tanstack/react-query'

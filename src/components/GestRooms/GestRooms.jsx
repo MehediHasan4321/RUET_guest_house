@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import RoomCard from '../RoomCard/RoomCard'
 import Loading from '../Loading/Loading'
 
