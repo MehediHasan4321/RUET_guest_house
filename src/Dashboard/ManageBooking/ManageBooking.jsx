@@ -70,6 +70,10 @@ const ManageBooking = () => {
         })
        
     }
+
+
+    
+
     return (
         <div className="overflow-x-auto min-h-screen">
             <table className="table">
@@ -96,9 +100,9 @@ const ManageBooking = () => {
                         <th>{index + 1}</th>
                         <td>
                             <div className="flex items-center space-x-3">
-                                <div className="avatar">
+                                <div className="avatar border-[1px] rounded-full">
                                     <div className="mask mask-squircle w-12 h-12">
-                                        <img className='border-[1px] rounded-full' src="" alt="User" />
+                                    <div className='w-full h-full flex justify-center items-center text-2xl font-semibold '>{booking?.name?.slice(0,1)}</div>
                                     </div>
                                 </div>
                                 <div>

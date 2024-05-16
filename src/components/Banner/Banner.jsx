@@ -9,18 +9,6 @@ const Banner = () => {
             title:"",
             desc:""
         },
-        {
-            _id : "0122",
-            image:"https://www.ruet.ac.bd/public/storage/sliders/5th-convocationqn3znqIQbc.jpg",
-            title:"",
-            desc:""
-        },
-        {
-            _id : "0123",
-            image:"https://eng.campuslive24.com/uploads/shares/2021/ruet-live-2022-09-26-20-59-54.jpg",
-            title:"",
-            desc:""
-        },
     ]
     const settings = {
         dots: true,
